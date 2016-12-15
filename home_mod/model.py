@@ -23,6 +23,14 @@ class User(BASE):
     def __repr__(self):
         return '<User %r>' % self.name
 
+    def sim1(self):
+        """OK"""
+        pass
+
+    def sim2(self):
+        """OK"""
+        pass
+
 # USERS = Table('users', META_DATA,
 #               Column('id', Integer, primary_key=True),
 #               Column('name', String(50)),
@@ -33,7 +41,7 @@ class User(BASE):
 
 class UserTest(BASE):
     """
-    Another Test DB
+    Another UserTest
     """
 
     __tablename__ = 'users_test'
@@ -46,3 +54,11 @@ class UserTest(BASE):
 
     def __repr__(self):
         return'<UserTest %r>' % self.name
+
+    def sim1(self):
+        """OK"""
+        pass
+
+    def sim2(self):
+        """OK"""
+        pass

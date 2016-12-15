@@ -30,4 +30,3 @@ BASE.query = DB_SESSION.query_property()
 #         self.update_at = created_at
 #         self.__tablename__ = table_name
 
-
