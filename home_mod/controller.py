@@ -5,7 +5,7 @@ MVC : example blueprint for large app
 from flask import Blueprint, abort
 from jinja2 import TemplateNotFound
 
-from helpers.template import Template
+from helpers.template import Template, authentication
 
 from home_mod.model import User
 
@@ -23,7 +23,9 @@ def show(page):
     except TemplateNotFound:
         abort(404)
 
+
 @HOME_R.route("/")
+@authentication
 def home():
     """
     Home page

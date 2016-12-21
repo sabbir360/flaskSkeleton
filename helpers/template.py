@@ -1,5 +1,5 @@
 """This script will make some helper to serve templates better."""
-from flask import render_template
+from flask import render_template, redirect, request
 
 from config import APP_NAME
 
@@ -32,3 +32,14 @@ class Template():
         """
         context['title'] = self.title
         return render_template(template+".html", **context)
+
+
+def authentication(check_auth=False):
+    """A decorator to help authentication process"""
+    print(check_auth)
+    def decorated():
+        """The callable decorator"""
+        if request.values.get("check"):
+            return redirect("/login?next=/" + request.url.replace(request.host_url, ""))
+    return decorated
+
