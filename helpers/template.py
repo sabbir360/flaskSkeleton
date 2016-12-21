@@ -34,12 +34,13 @@ class Template():
         return render_template(template+".html", **context)
 
 
-def authentication(check_auth=False):
+def authentication(parent_method):
     """A decorator to help authentication process"""
-    print(check_auth)
+
     def decorated():
         """The callable decorator"""
         if request.values.get("check"):
             return redirect("/login?next=/" + request.url.replace(request.host_url, ""))
+        return parent_method()
     return decorated
 

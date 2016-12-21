@@ -10,6 +10,7 @@ from helpers.template import Template, authentication
 from home_mod.model import User
 
 HOME_R = Blueprint('home', __name__, template_folder='templates')
+TEMPLATE = Template()
 
 @HOME_R.route('/<page>')
 def show(page):
@@ -23,13 +24,18 @@ def show(page):
     except TemplateNotFound:
         abort(404)
 
-
 @HOME_R.route("/")
 @authentication
 def home():
     """
     Home page
     """
-    template = Template()
-    template.set_title("RoR Check.")
-    return template.render("/ror/index", entries=User().query.all())
+
+    TEMPLATE.set_title("RoR Check.")
+    return TEMPLATE.render("/ror/index", entries=User().query.all())
+
+@HOME_R.route("/login")
+def login():
+    """login controller"""
+
+    return TEMPLATE.render("/")
