@@ -2,8 +2,10 @@
 MVC : example blueprint for large app
 """
 
-from flask import Blueprint, abort, render_template
+from flask import Blueprint, abort
 from jinja2 import TemplateNotFound
+
+from helpers.template import Template
 
 from home_mod.model import User
 
@@ -26,4 +28,6 @@ def home():
     """
     Home page
     """
-    return render_template("/ror/index.html", entries=User().query.all())
+    template = Template()
+    template.set_title("RoR Check.")
+    return template.render("/ror/index", entries=User().query.all())
