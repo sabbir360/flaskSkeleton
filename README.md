@@ -13,4 +13,3 @@
  - It will also work as a windows service which can be implement over time with help of few other things.
  - For development run use `python devrun.py`
  - To add new python library add it to `requirements.txt` and then fire `pip install -r requirements.txt`
- - For further assistance reach me *sabbir1cse@outlook.com* 
